@@ -1,3 +1,25 @@
+var array1 = [23,34,31,38,2,20];
+console.log(array1);
+
+var x;
+console.log(x);
+
+var array2 = [13,"Daksh",true,27,"Coding",false,83,"Visual",false];
+console.log(array2);
+console.log(array2[1]);
+array2.push(11);
+console.log(array2);
+array2.pop();
+console.log(array2);
+
+var array3 = [[32,"Agarwal",true,72,"Bash",false],[85,"Git",false],[59,"Studio",false]];
+console.log(array3);
+console.log(array3[0][4]);
+
+var gameState = "OnSling";
+
+
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -69,12 +91,13 @@ function draw(){
 }
 
 function mouseDragged(){
+    if (gameState !=="launched"){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    }
 }
-
-
 function mouseReleased(){
-    slingshot.fly();
+    slingshot.fly(); 
+    gameState = "launched";
 }
 
 function keyPressed(){
